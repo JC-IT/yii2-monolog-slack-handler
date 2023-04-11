@@ -1,0 +1,53 @@
+{
+    "name": "jc-it/PACKAGE_BASE",
+    "description": "PACKAGE_BASE.",
+    "type": "library",
+    "require": {
+        "php": ">=8.1",
+    },
+    "require-dev": {
+        "captainhook/plugin-composer": "^5.3",
+        "phpstan/phpstan": "^1.2",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-strict-rules": "^1.1",
+        "ramsey/conventional-commits": "^1.3",
+        "symfony/console": "^5.4.2",
+        "symplify/easy-coding-standard": "^10.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joey Claessen",
+            "email": "joey_claessen@hotmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JCIT\\": ["src/"]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JCIT\\tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": "vendor/bin/ecs",
+        "lint-fix": "vendor/bin/ecs --fix",
+        "test": "vendor/bin/phpunit --coverage"
+    },
+    "config": {
+        "allow-plugins": {
+            "captainhook/plugin-composer": true,
+            "phpstan/extension-installer": true,
+            "yiisoft/yii2-composer": true
+        }
+    }
+}
