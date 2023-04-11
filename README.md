@@ -1,4 +1,4 @@
-# Helpers to work with model translations for Yii2
+# Package base
 
 [![codecov](https://codecov.io/gh/jc-it/PACKAGE_BASE/branch/master/graph/badge.svg)](https://codecov.io/gh/jc-it/PACKAGE_BASE)
 [![Continous integration](https://github.com/jc-it/PACKAGE_BASE/actions/workflows/ci.yaml/badge.svg)](https://github.com/jc-it/PACKAGE_BASE/actions/workflows/ci.yaml)
