@@ -1,9 +1,9 @@
 {
-    "name": "jc-it/PACKAGE_BASE",
+    "name": "jc-it/package-base",
     "description": "PACKAGE_BASE.",
     "type": "library",
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.1"
     },
     "require-dev": {
         "captainhook/plugin-composer": "^5.3",
