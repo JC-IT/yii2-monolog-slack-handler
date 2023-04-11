@@ -39,11 +39,11 @@ $logger->pushHandler($handler);
 ## TODO
 - Fix PHPStan, re-add to `captainhook.json`
     - ```      
-    {
-        "action": "vendor/bin/phpstan",
-        "options": [],
-        "conditions": []
-    },
+      {
+          "action": "vendor/bin/phpstan",
+          "options": [],
+          "conditions": []
+      },
     ```
 - Add tests
 
