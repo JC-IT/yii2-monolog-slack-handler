@@ -44,7 +44,7 @@ $logger->pushHandler($handler);
           "options": [],
           "conditions": []
       },
-    ```
+      ```
 - Add tests
 
 ## Credits
