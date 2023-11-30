@@ -8,6 +8,7 @@ use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Handler\Curl\Util;
 use Monolog\Handler\MissingExtensionException;
 use Monolog\Logger;
+use Monolog\LogRecord;
 use Monolog\Utils;
 use Throwable;
 use yii\base\Application;
@@ -66,7 +67,7 @@ class SlackErrorWebhookHandler extends AbstractProcessingHandler
         return htmlspecialchars($string, ENT_NOQUOTES, 'UTF-8');
     }
 
-    public function formatMessage($record): string
+    public function formatMessage(LogRecord $record): string
     {
         $text = $record['message'];
         $level = $record['level_name'];
@@ -93,7 +94,7 @@ class SlackErrorWebhookHandler extends AbstractProcessingHandler
             . (empty($traces) ? '' : "\n    " . implode("\n    ", $traces));
     }
 
-    protected function formatRecordAttachment(array $record): array
+    protected function formatRecordAttachment(LogRecord $record): array
     {
         $attachment = [
             'fallback' => $this->encode($this->formatMessage($record)),
@@ -173,7 +174,7 @@ class SlackErrorWebhookHandler extends AbstractProcessingHandler
         return $this->_isConsoleRequest;
     }
 
-    public function getMessagePrefix(array $record): string
+    public function getMessagePrefix(LogRecord $record): string
     {
         if ($this->app() === null) {
             return '';
@@ -197,7 +198,7 @@ class SlackErrorWebhookHandler extends AbstractProcessingHandler
         return "[$ip][$userID][$sessionID]";
     }
 
-    protected function getPayload(array $record): array
+    protected function getPayload(LogRecord $record): array
     {
         $payload = [
             'parse' => 'none',
@@ -225,7 +226,7 @@ class SlackErrorWebhookHandler extends AbstractProcessingHandler
         }
     }
 
-    public function getStackTrace(array $record): ?string
+    public function getStackTrace(LogRecord $record): ?string
     {
         if (!isset($record['context']['exception'])) {
             return null;
@@ -307,7 +308,7 @@ class SlackErrorWebhookHandler extends AbstractProcessingHandler
         return $this;
     }
 
-    protected function write(array $record): void
+    protected function write(LogRecord $record): void
     {
         $postData = $this->getPayload($record);
         $postString = Utils::jsonEncode($postData);
